@@ -9,3 +9,5 @@ class Member(models.Model):
 
   def __str__(self):
     return f"{self.firstname} {self.lastname}"
+class FileUpload(models.Model):
+  your_file = models.FileField(upload_to='file_upload/')
