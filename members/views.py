@@ -42,5 +42,5 @@ def upload_file(request):
             form.save()
     else:
         form = FileUploadModelForm()
-    return render(request, 'your_template.html', {'form': form})
+    return render(request, './templetes/fileupload.html', {'form': form})
 # Create your views here.
