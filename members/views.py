@@ -29,17 +29,15 @@ def testing(request):
         'fruits':['Apple','Banana','Cherry'],
     }
     return HttpResponse(template.render(context, request))
+def upload_file_init(request):
+    template = loader.get_template('fileupload.html')
+    return HttpResponse(template.render(request))
 def upload_file(request):
     if request.method =='POST':
         form = FileUploadModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            # return redirect('success_view')
     else:
         form = FileUploadModelForm()
-    template = loader.get_template('fileupload.html')
-    context = {
-        'form':form
-    }
-    return HttpResponse(template.render(context,request))
+    return render(request, 'your_template.html', {'form': form})
 # Create your views here.

@@ -6,9 +6,10 @@ File Upload
 
 {% block content%}
 
-<form method="post" enctype="multipart/form-data">
+<form method="post" action="fileupload/" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+    <input type="file"/>
     <button type="submit">Upload</button>
 </form>
-{% endblock %}
+{% endblock %}  
