@@ -30,8 +30,11 @@ def testing(request):
     }
     return HttpResponse(template.render(context, request))
 def upload_file_init(request):
+    context = {
+        'fruits':['Apple','Banana','Cherry'],
+    }
     template = loader.get_template('fileupload.html')
-    return HttpResponse(template.render(request))
+    return HttpResponse(template.render(context,request))
 def upload_file(request):
     if request.method =='POST':
         form = FileUploadModelForm(request.POST, request.FILES)
